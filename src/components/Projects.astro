@@ -1,0 +1,140 @@
+---
+import GitHub from "./icons/GitHub.astro"
+import ReactJS from "./icons/ReactJS.astro"
+import Redux from "./icons/Redux.astro"
+import ChakraUI from "./icons/ChakraUI.astro"
+import Solana from "./icons/Solana.astro"
+import Angular from "./icons/Angular.astro"
+import Discord from "./icons/Discord.astro"
+import TypeScript from "./icons/TypeScript.astro"
+import Tailwind from "./icons/Tailwind.astro"
+import Link from "./icons/Link.astro"
+import LinkButton from "./LinkButton.astro"
+
+
+const TAGS = {
+  REACT: {
+    name: "React.js",
+    class: "bg-black text-white",
+    icon: ReactJS,
+  },
+  REDUX: {
+    name: "Redux.js",
+    class: "bg-black text-white",
+    icon: Redux,
+  },
+  CHAKRA: {
+    name: "Chakra.UI",
+    class: "bg-black text-white",
+    icon: ChakraUI,
+  },
+  TAILWIND: {
+    name: "Tailwind CSS",
+    class: "bg-black text-white",
+    icon: Tailwind,
+  },
+  SOLANA: {
+    name: "Solana",
+    class: "bg-black text-white",
+    icon: Solana,
+  },
+  ANGULAR: {
+    name: "Angular.js",
+    class: "bg-black text-white",
+    icon: Angular,
+  },
+  DISCORD: {
+    name: "Discord",
+    class: "bg-black text-white",
+    icon: Discord,
+  },
+  TYPESCRIPT: {
+    name: "TypeScript",
+    class: "bg-black text-white",
+    icon: TypeScript,
+  },
+}
+const PROJECTS = [
+  {
+    title: "IPC - Sistema de Índice de Precios al Consumidor",
+    description:
+      "Sistema manejar los distintos procesos para calcular el IPC. Creado desde cero con React.js, Redux-Sagas, Chakra.UI.",
+    image: "/projects/IPC2.webp",
+    link: "https://www.youtube.com/@SoyElieGonzalez",
+    github: "https://github.com/ElieGonzalez",
+    tags: [TAGS.REACT, TAGS.REDUX, TAGS.CHAKRA],
+  },
+  {
+    title: "SrdApp - Sistema de Recopilación de Datos",
+    description:
+      "App Mobile para la recopilación de datos mediante encuestas. Creada desde cero con React Native y TypeScript.",
+    image: "/projects/srd1.webp",
+    link: "https://www.youtube.com/@SoyElieGonzalez",
+    github: "https://github.com/ElieGonzalez",
+    tags: [TAGS.REACT, TAGS.TYPESCRIPT],
+  },
+  {
+    title: "Dapp - Wallet Solana",
+    description:
+      "Dapp para ver el balance y las transacciones realizadas en la red Solana. Creado desde cero con Angular.js, TypeScript y Tailwind CSS.",
+    image: "/projects/Dapp.webp",
+    link: "https://www.youtube.com/@SoyElieGonzalez",
+    github: "https://github.com/ElieGonzalez/AngularApp",
+    tags: [TAGS.ANGULAR, TAGS.TYPESCRIPT, TAGS.TAILWIND],
+  },
+]
+---
+
+<div class="flex flex-col gap-y-16">
+  {
+    PROJECTS.map(({ image, title, description, tags, link, github }) => (
+    <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
+  <div class="w-full md:w-1/2">
+    <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
+      <img alt="Recién llegado vs 5 años en Nueva Zelanda" class="object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105" loading="lazy" src={image} />
+    </div>
+  </div>
+
+  <div class="w-full md:w-1/2 md:max-w-lg">
+    <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100">
+      {title}
+    </h3>
+    <div class="flex flex-wrap mt-2">
+      <ul class="flex flex-row mb-2 gap-x-2">
+          {tags.map((tag) => (
+            <li>
+              <span
+                class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 `}
+              >
+                <tag.icon class="size-4" />
+                {tag.name}
+              </span>
+            </li>
+          ))}
+        </ul>
+
+      <div class="mt-2 text-gray-700 dark:text-gray-400">{description}</div>
+      <footer class="flex items-end justify-start mt-4 gap-x-4">
+          {github && (
+            <LinkButton href={github}>
+              <GitHub class="size-6" />
+              Code
+              
+            </LinkButton>
+          )}
+          {link && (
+            <LinkButton href={link}>
+              <Link class="size-4" />
+              Preview
+            </LinkButton>
+          )}
+        </footer>
+    </div>
+  </div>
+</article>
+    ))
+  }
+</div>
+
+
+
