@@ -1,8 +1,7 @@
 # 👨🏻‍💻 Hola! Soy Eliecer Gonzalez. Bienvenido a mi Porfolio.
 
 <div align="center">
-<a href="https://porfolio.dev/">
-<img src="./public/porfolio.webp">
+<img src="./public/EliePorfolio.webp">
 </a>
 <p></p>
 </div>
